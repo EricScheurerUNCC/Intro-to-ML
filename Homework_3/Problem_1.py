@@ -12,8 +12,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import MinMaxScaler, StandardScaler
-from sklearn import metrics
+from sklearn.preprocessing import StandardScaler
 import seaborn as sns
 from google.colab import drive
 # Connect to Google Drive
@@ -137,6 +136,7 @@ def confusion_matrix(y_true, y_pred):
     return np.array([[TN, FP], [FN, TP]])
 
 # Evaluation
+y_pred = (sigmoid(X_test.dot(theta)) >= 0.5).astype(int)
 accuracy, precision, recall, f1 = scores(y_test, y_pred)
 print('Accuracy: ', round(accuracy, 4))
 print('Precision:', round(precision, 4))
